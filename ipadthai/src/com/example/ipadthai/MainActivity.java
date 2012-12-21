@@ -32,6 +32,7 @@ public class MainActivity extends Activity  implements OnClickListener{
         	RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         	params.leftMargin = mPlate.getXCoordElement(i);
         	params.topMargin = mPlate.getYCoordElement(i);
+        	params.width = 50;
         	relativeLayout.addView(listImage[i], params);
         }
     }
