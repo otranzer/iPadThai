@@ -43,19 +43,19 @@ public class Plate {
 			mYCoord.add((int) (Math.random()*height));
 			
 			if(i<mNumberPate){
-				mRefImage.add( context.getResources().getIdentifier("pate0"+(int)Math.random()*mNumberPateVariety, "drawable", context.getPackageName()) );
+				mRefImage.add( context.getResources().getIdentifier("pasta"+(int)(Math.random()*mNumberPateVariety+1), "drawable", context.getPackageName()) );
 			}
 			else if(i>=mNumberPate&& i<mNumberOnion){
-				mRefImage.add( context.getResources().getIdentifier("onion0"+(int)Math.random()*mNumberOnionVariety, "drawable", context.getPackageName()) );
+				mRefImage.add( context.getResources().getIdentifier("onion"+(int)(Math.random()*mNumberOnionVariety+1), "drawable", context.getPackageName()) );
 			}
 			else if(i>=mNumberOnion&& i<mNumberChicken){
-				mRefImage.add( context.getResources().getIdentifier("chicken0"+(int)Math.random()*mNumberChickenVariety, "drawable", context.getPackageName()) );
+				mRefImage.add( context.getResources().getIdentifier("chicken"+(int)(Math.random()*mNumberChickenVariety+1), "drawable", context.getPackageName()) );
 			}
 			else if(i>=mNumberChicken&& i<mNumberPrawn){
-				mRefImage.add( context.getResources().getIdentifier("prawn0"+(int)Math.random()*mNumberPrawnVariety, "drawable", context.getPackageName()) );
+				mRefImage.add( context.getResources().getIdentifier("prawn"+(int)(Math.random()*mNumberPrawnVariety+1), "drawable", context.getPackageName()) );
 			}
 			else if(i>=mNumberPrawn&& i<mNumberCoriander){
-				mRefImage.add( context.getResources().getIdentifier("coriander0"+(int)Math.random()*mNumberCorianderVariety, "drawable", context.getPackageName()) );
+				mRefImage.add( context.getResources().getIdentifier("coriander"+(int)(Math.random()*mNumberCorianderVariety+1), "drawable", context.getPackageName()) );
 			}
 		}
 		
