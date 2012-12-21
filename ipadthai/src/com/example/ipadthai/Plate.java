@@ -4,14 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.util.Log;
 
 public class Plate {
 	
-	private final int mNumberPateVariety =4; 
+	private static final String TAG = "iPadThai";
+	private final int mNumberPateVariety =9; 
 	private final int mNumberOnionVariety =4; 
 	private final int mNumberChickenVariety =4; 
-	private final int mNumberPrawnVariety =4; 
-	private final int mNumberCorianderVariety =4; 
+	private final int mNumberPrawnVariety =2; 
+	private final int mNumberCorianderVariety =2; 
 	private int mNumberPate = 0;
 	private int mNumberOnion = 0;
 	private int mNumberChicken = 0;
@@ -36,7 +38,7 @@ public class Plate {
 		mNumberPrawn = numPrawn;
 		mNumberCoriander = numCoriander;
 		mNumElement = mNumberPate+ mNumberOnion + mNumberChicken+mNumberPrawn+mNumberCoriander;
-		
+		Log.v(TAG,"mNumElement : "+mNumElement);
 		
 		for(int i=0 ; i<mNumElement;i++){
 			mXCoord.add((int) (Math.random()*width));
@@ -45,16 +47,16 @@ public class Plate {
 			if(i<mNumberPate){
 				mRefImage.add( context.getResources().getIdentifier("pasta"+(int)(Math.random()*mNumberPateVariety+1), "drawable", context.getPackageName()) );
 			}
-			else if(i>=mNumberPate&& i<mNumberOnion){
+			else if(i>=mNumberPate&& i<(mNumberPate+mNumberOnion) ){
 				mRefImage.add( context.getResources().getIdentifier("onion"+(int)(Math.random()*mNumberOnionVariety+1), "drawable", context.getPackageName()) );
 			}
-			else if(i>=mNumberOnion&& i<mNumberChicken){
+			else if(i>=(mNumberPate+mNumberOnion)&& i<(mNumberPate+mNumberOnion+mNumberChicken)){
 				mRefImage.add( context.getResources().getIdentifier("chicken"+(int)(Math.random()*mNumberChickenVariety+1), "drawable", context.getPackageName()) );
 			}
-			else if(i>=mNumberChicken&& i<mNumberPrawn){
+			else if(i>=(mNumberPate+mNumberOnion+mNumberChicken)&& i<(mNumberPate+mNumberOnion+mNumberChicken+mNumberPrawn)){
 				mRefImage.add( context.getResources().getIdentifier("prawn"+(int)(Math.random()*mNumberPrawnVariety+1), "drawable", context.getPackageName()) );
 			}
-			else if(i>=mNumberPrawn&& i<mNumberCoriander){
+			else if(i>=(mNumberPate+mNumberOnion+mNumberChicken+mNumberPrawn)&& i<(mNumberPate+mNumberOnion+mNumberChicken+mNumberPrawn+mNumberCoriander)){
 				mRefImage.add( context.getResources().getIdentifier("coriander"+(int)(Math.random()*mNumberCorianderVariety+1), "drawable", context.getPackageName()) );
 			}
 		}
@@ -79,6 +81,8 @@ public class Plate {
 		return mYCoord.get(i);
 	}
 	public int getRefElement(int i){
+		if(i>=mNumElement)
+			Log.v(TAG, "oups :" + i);
 		return mRefImage.get(i);
 	}
 	
